@@ -222,7 +222,6 @@ def main():
     eventLoop(date, stored_Lists)
     clear_screen()
 
-run_window()
 main()
 
 
