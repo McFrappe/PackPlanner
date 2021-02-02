@@ -139,7 +139,7 @@ def add_item_list(stored_Lists):
 
 def initiate_file(stored_Lists):
     # open file and store it as variable f
-    with open("plans.txt", "r", encoding="UTF-8") as f:
+    with open("storedPlanners/plans.txt", "r", encoding="UTF-8") as f:
         for line in f:
             extracted_list = line.split('/') # list is returned
             if len(extracted_list) > 1:
@@ -150,7 +150,7 @@ def initiate_file(stored_Lists):
                     created_list.add_item(item)
 
 def shutdown(stored_Lists):
-    with open("plans.txt", "w", encoding="UTF-8") as f:
+    with open("storedPlanners/plans.txt", "w", encoding="UTF-8") as f:
         for available_list in stored_Lists.values():
             all_items = available_list.name + "/" + available_list.date
 
@@ -197,11 +197,13 @@ def eventLoop(date, stored_Lists):
         else:
             print("Please, supply the letters provided above.")
 
+def clear_screen():
+    print(chr(27) + '[2j' + '\033c'+'\x1bc')
 
 
 def main():
     # clears the screen
-    print(chr(27) + '[2j' + '\033c'+'\x1bc')
+    clear_screen()
     print("===================================")
     print("|         Pack Planner             |")
     print("===================================")
@@ -217,6 +219,7 @@ def main():
         print("Following planner is the closest to todays date:\n* " + list_to_print + "\n=======\n")
 
     eventLoop(date, stored_Lists)
+    clear_screen()
 
 main()
 
