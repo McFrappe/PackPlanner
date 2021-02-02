@@ -1,5 +1,6 @@
  # -- coding: utf-8 --
 from structure import List
+from GUI import *
 
 # Function to check if date is a number
 # and a certain format (8 numbers)
@@ -221,6 +222,8 @@ def main():
     eventLoop(date, stored_Lists)
     clear_screen()
 
+run_window()
 main()
+
 
     
