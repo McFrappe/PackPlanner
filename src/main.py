@@ -1,12 +1,11 @@
  # -- coding: utf-8 --
 from structure import List
-from GUI import *
 
 # Function to check if date is a number
 # and a certain format (8 numbers)
 def date_checker(question):
     date_check = True
-    while date_check: 
+    while date_check:
         date = input(question)
         if date.isdecimal() and len(date) == 8:
             date_check = False
@@ -57,17 +56,17 @@ def ask_for_list(list_name, search, stored_Lists):
             i += 1
             # take out the list object from dictionary stored_Lists
             current_list = stored_Lists[x]
-            print(f"{i}. {current_list.print_list()}")
-    
+            print(f"{i}. {current_list.print_list()}
+
         while True:
             list_index = input("Type the number of which planner you would like to choose.\n:")
             if list_index.isdecimal():
                 # convert string input to int
                 index = int(list_index)
                 # eg 0 < index < 10
-                if index > 0 and index < len(search) + 1: 
+                if index > 0 and index < len(search) + 1:
                     return search[index - 1]
-                else: 
+                else:
                     print("Incorrect index!")
             else:
                 print("Try again, the input supplied was not a number.")
@@ -156,8 +155,7 @@ def shutdown(stored_Lists):
             all_items = available_list.name + "/" + available_list.date
 
             for item in available_list.items_in_list:
-                all_items = all_items + "/" + item 
-            
+                all_items = all_items + "/" + item
             f.write(all_items)
 
 def eventLoop(date, stored_Lists):
@@ -172,7 +170,6 @@ def eventLoop(date, stored_Lists):
         print("Q - Quit.")
 
         choice = input(":")
-        
         if choice == 'N' or choice == 'n':
             list_name = input("What would you like to name the planner?\n:")
             list_date = date_checker(f"What date is the {list_name} due?\n:")
@@ -202,7 +199,7 @@ def clear_screen():
     print(chr(27) + '[2j' + '\033c'+'\x1bc')
 
 
-def main():
+def __main__:
     # clears the screen
     clear_screen()
     print("===================================")
@@ -212,7 +209,6 @@ def main():
     date = date_checker("Todays date: ")
 
     initiate_file(stored_Lists)
-        
     remind_list = reminder(date, stored_Lists)
     if remind_list is not None:
         print("=======\nThere are planners coming up!")
@@ -221,8 +217,3 @@ def main():
 
     eventLoop(date, stored_Lists)
     clear_screen()
-
-main()
-
-
-    
